@@ -18,11 +18,18 @@ export default class ContactApp extends React.Component {
 
 		if (!contact.name || !contact.email || !contact.phone) {
 			return 'Enter Complete Contact details';
-		} else if (duplicates[lastIndex]) {
+		} else if (duplicates[0] || duplicates[lastIndex]) {
+			// check if the newly added contact causes the duplicates array to return true
 			return 'This contact exists already';
 		}
 
 		this.setState((prevState) => ({ contacts: prevState.contacts.concat([ contact ]) }));
+	};
+
+	handleDeleteContact = (contactToDelete) => {
+		this.setState((prevState) => ({
+			contacts: prevState.contacts.filter((contact) => contactToDelete !== contact.phone)
+		}));
 	};
 
 	componentDidMount() {
@@ -50,7 +57,7 @@ export default class ContactApp extends React.Component {
 		return (
 			<div>
 				<Header subtitle={subtitle} />
-				<Contacts contacts={this.state.contacts} />
+				<Contacts contacts={this.state.contacts} handleDeleteContact={this.handleDeleteContact} />
 				<AddContact handleAddContact={this.handleAddContact} />
 			</div>
 		);
