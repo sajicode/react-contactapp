@@ -16,6 +16,12 @@ export default class AddContact extends React.Component {
 		const error = this.props.handleAddContact(contact);
 
 		this.setState(() => ({ error }));
+
+		if (!error) {
+			e.target.elements.name.value = '';
+			e.target.elements.email.value = '';
+			e.target.elements.phone.value = '';
+		}
 	};
 
 	render() {
