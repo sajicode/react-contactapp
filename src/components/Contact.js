@@ -13,6 +13,7 @@ const Contact = (props) => (
 						props.handleDeleteContact(props.contactPhone);
 					}
 				}}
+				className="button"
 			>
 				Delete
 			</button>

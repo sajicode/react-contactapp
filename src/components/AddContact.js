@@ -35,7 +35,7 @@ export default class AddContact extends React.Component {
 					<br />
 					<input type="number" name="phone" placeholder="Phone Number" />
 					<br />
-					<button>Add Contact</button>
+					<button className="button">Add Contact</button>
 				</form>
 			</div>
 		);

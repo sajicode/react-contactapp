@@ -57,8 +57,10 @@ export default class ContactApp extends React.Component {
 		return (
 			<div>
 				<Header subtitle={subtitle} />
-				<Contacts contacts={this.state.contacts} handleDeleteContact={this.handleDeleteContact} />
-				<AddContact handleAddContact={this.handleAddContact} />
+				<div className="container">
+					<Contacts contacts={this.state.contacts} handleDeleteContact={this.handleDeleteContact} />
+					<AddContact handleAddContact={this.handleAddContact} />
+				</div>
 			</div>
 		);
 	}
