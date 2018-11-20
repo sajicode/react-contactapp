@@ -8,9 +8,10 @@ const Contacts = (props) => (
 		</div>
 
 		{props.contacts.length === 0 && <p className="widget-message">Add a Contact to get Started</p>}
-		<table>
+		<table className="widget-table">
 			<thead>
 				<tr>
+					<th>S/N</th>
 					<th>Name</th>
 					<th>Email</th>
 					<th>Phone Number</th>
