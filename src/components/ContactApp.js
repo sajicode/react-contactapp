@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import AddContact from './AddContact';
+import Contacts from './Contacts';
 
 export default class ContactApp extends React.Component {
 	state = {
@@ -8,6 +9,7 @@ export default class ContactApp extends React.Component {
 	};
 
 	handleAddContact = (contact) => {
+		// map over added contact to check details against current contacts
 		let duplicates = this.state.contacts.map((user) => {
 			return user.phone === contact.phone || user.email === contact.email;
 		});
@@ -21,10 +23,21 @@ export default class ContactApp extends React.Component {
 		}
 
 		this.setState((prevState) => ({ contacts: prevState.contacts.concat([ contact ]) }));
-
-		console.log(duplicates[lastIndex]);
-		console.log(duplicates);
 	};
+
+	componentDidMount() {
+		try {
+			const json = localStorage.getItem('contacts');
+			const contacts = JSON.parse(json);
+
+			if (contacts) {
+				this.setState(() => ({ contacts }));
+			}
+		} catch (error) {
+			// nothing
+		}
+	}
+
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.contacts.length !== this.state.contacts.length) {
 			const json = JSON.stringify(this.state.contacts);
@@ -37,6 +50,7 @@ export default class ContactApp extends React.Component {
 		return (
 			<div>
 				<Header subtitle={subtitle} />
+				<Contacts contacts={this.state.contacts} />
 				<AddContact handleAddContact={this.handleAddContact} />
 			</div>
 		);
