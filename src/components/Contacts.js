@@ -3,11 +3,11 @@ import Contact from './Contact';
 
 const Contacts = (props) => (
 	<div>
-		<div>
-			<h3>Your Contacts</h3>
+		<div className="widget-header">
+			<h3 className="widget-header__title">Your Contacts</h3>
 		</div>
 
-		{props.contacts.length === 0 && <p>Add a Contact to get Started</p>}
+		{props.contacts.length === 0 && <p className="widget-message">Add a Contact to get Started</p>}
 		<table>
 			<thead>
 				<tr>

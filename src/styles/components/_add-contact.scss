@@ -1,0 +1,22 @@
+// add contact error
+.add-contact-error {
+	color: #741b1b;
+	font-style: italic;
+	padding: 0 $m-size;
+	margin: $m-size 0 0 0;
+}
+
+.add-contact {
+	padding: $m-size;
+	display: flex;
+	flex-direction: column;
+}
+
+.add-contact__input {
+	flex-grow: 1;
+	border: none;
+	background: $off-white;
+	color: $off-blue;
+	padding: $s-size;
+	margin: 0 0 $s-size 0;
+}

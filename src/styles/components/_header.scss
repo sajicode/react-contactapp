@@ -14,7 +14,7 @@
 	color: #fff;
 	font-size: $m-size;
 	font-weight: 500;
-	margin: 0;
+	margin: $s-size 0 0 0;
 }
 
 @media (min-width: $desktop-breakpoint) {

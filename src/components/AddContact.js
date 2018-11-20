@@ -27,13 +27,13 @@ export default class AddContact extends React.Component {
 	render() {
 		return (
 			<div>
-				{this.state.error && <p>{this.state.error}</p>}
-				<form onSubmit={this.handleAddContact}>
-					<input type="text" name="name" placeholder="Name" />
+				{this.state.error && <p className="add-contact-error">{this.state.error}</p>}
+				<form className="add-contact" onSubmit={this.handleAddContact}>
+					<input type="text" name="name" placeholder="Name" className="add-contact__input" />
 					<br />
-					<input type="email" name="email" placeholder="Email" />
+					<input type="email" name="email" placeholder="Email" className="add-contact__input" />
 					<br />
-					<input type="number" name="phone" placeholder="Phone Number" />
+					<input type="number" name="phone" placeholder="Phone Number" className="add-contact__input" />
 					<br />
 					<button className="button">Add Contact</button>
 				</form>
